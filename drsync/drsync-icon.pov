@@ -1,5 +1,5 @@
 // Credit: Eric Bainville - Mar 2007
-// Location: http://www.bealto.com/geo-povray-buttons_glow.html
+// Location: http://www.bealto.com/geo-povray-buttons_sky.html
 
 #include "colors.inc"
 #include "metals.inc"
@@ -8,12 +8,9 @@
 global_settings {
   assumed_gamma 1        
   ambient_light White
-  photons {
-    spacing 0.01
-    media 60
-  }
 }
 
+// Switched to a perspective camera
 #declare camera_distance = 20;
 camera {                        
   location <0,0,camera_distance>
@@ -23,13 +20,7 @@ camera {
   //rotate 50*x
 }
 
-light_source { <-30,70,100>, White
-  photons {
-    reflection off
-    refraction off
-  }
-  media_interaction off
-}  
+light_source { <-30,70,100>, White }  
 
 // Rounded square button
 #declare b_rsquare = superellipsoid {
@@ -39,74 +30,60 @@ light_source { <-30,70,100>, White
 }
 
 // Button symbol (start/stop)
-#declare c_start = union {
-        text {
-                ttf "arial.ttf" "Dr" 2, 0  
-                translate <-0.5, 0.25, 0>
-        }
-        text {
-                ttf "arial.ttf" "Sync" 2, 0  
-                translate <-1, -0.75, 0>
-        }
-}
-
-// Button texture
-#declare t_button = texture {
-  finish {
-    ambient 0.2
-    diffuse 0.3
-    specular 0
-    phong 0.6 phong_size 20
-    reflection 0
+#declare c_start = merge {
+  difference {
+    cylinder { <0,0,0>,<0,0,1>,1 }
+    union {
+      cylinder { <0,0,-1>,<0,0,2>,0.7 }
+      box { <-0.3,0,-1>,<0.3,2,2> }
+    }
   }
-  normal { bumps 0.05 scale 0.01 }
-  pigment { color Blue }
+  box { <-0.15,0.2,0>,<0.15,1.2,1> }
 }
 
-// Button and contents (hole in button for backlight)
-#declare final_button = difference {
-  object { b_rsquare scale <0.9,0.9,1> }
-  object { c_start scale <0.5,0.5,2> translate <0,0,-1> }
+// Button finish
+#declare f_button = finish {
+  ambient 0.2
+  diffuse 0.3
+  specular 0
+  phong 0.6 phong_size 20
+  reflection 0.3 // Reflects the sky sphere
 }
 
-// Backlight
-light_source {
-  <0,0,-20>, Yellow
-  projected_through { box { <-0.7,-0.7,-1.1>,<0.7,0.7,-1> } }
-  photons {
-    reflection on
-    refraction on
+// Content finish
+#declare f_content = finish {
+  ambient 0.7 // Large ambient to saturate color
+  diffuse 0.3
+  specular 0
+  phong 0
+  reflection 0
+}
+
+// Button and contents
+difference {
+  object { b_rsquare
+    texture { pigment { color Red } finish { f_button } }
+    scale <0.9,0.9,1>
   }
-  media_interaction on
-}
-
-// Button
-object { final_button texture { t_button }
-  photons {
-    target
-    collect on
-    reflection on
-    refraction on
+  object { c_start
+    texture { pigment { color White } finish { f_content } }
+    scale <0.5,0.5,0.2> translate <0,0,-0.08>
   }
 }
 
-// Media container
-cylinder { <0,0,0.01>,<0,0,1>,5
-  hollow pigment { color rgbt 1 }
-  interior { media {
-    scattering { 2,White*0.7 }
-    density { spherical scale 2
-      density_map {
-        // Outside
-        [0 rgb 0] [0.55 rgb 0]
-        // Inside and center
-        [0.65 rgb 1] [1 rgb 1]
+sky_sphere {
+    pigment {
+      gradient y
+      color_map {
+        // Sky
+        [ 0.0 color Blue ]
+        [ 0.4 color Blue*0.3 ]
+        [ 0.5 color White*0.4 ]
+        [ 0.5 color White*0 ]
+        [ 0.7 color White ]
+        [ 1.0 color White ]
+        // Ground
       }
-  } } }
-  photons {
-    target
-    collect on
-    reflection on
-    refraction on
-  }
+      scale -2 translate 1.005 // Slight vertical offset
+    }
 }
