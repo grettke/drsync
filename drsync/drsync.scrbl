@@ -9,16 +9,16 @@ This is DrSync, written by Grant Rettke (grettke@elem["@"]acm.org).
 @section[#:tag "What"]{What it does}
 
 @(itemize    
-  (item "DrSync reverts your files when DrScheme's frame activates and saves them
+  (item "DrSync reverts your files when DrRacket's frame activates and saves them
         when it deactivates. "))
 
 @section[#:tag "Why"]{Why you might want to use it}
 
 @(itemize    
-  (item "When switching between DrScheme and your favorite version control client, it is
+  (item "When switching between DrRacket and your favorite version control client, it is
 	easier knowing that your file is saved, and ready for a commit.")
   (item "If you use version control keyword expansion, after a commit you need to revert your
-	file upon returning to DrScheme.")
+	file upon returning to DrRacket.")
   (item "If you use an external compilation process, sometimes you forget to
 	save your changes, resulting in phenomena ranging from head scratching to hair pulling.")
   (item "After manually addressing any of these scenarios three or four hundred times, you will start 

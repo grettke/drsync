@@ -1,5 +1,5 @@
 #|
-Copyright (c) 2008 Grant Rettke (grettke@acm.org)
+Copyright (c) 2010 Grant Rettke (grettke@acm.org)
 
 All rights reserved.
 
@@ -26,24 +26,19 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 |#
-#|
-$LastChangedDate$
-$LastChangedRevision$
-$HeadURL$
-|#
 #lang setup/infotab
 
 (define name "DrSync")
 
-(define version "1.0.2")
+(define version "1.0.3")
 
-(define release-notes '((p "Updated for 4.x.")))
+(define release-notes '((p "Updated for 5.x.")))
 
 (define blurb
-  '("DrSync reverts your files when DrScheme's frame activates and saves them
+  '("DrSync reverts your files when DrRacket's frame activates and saves them
     when it deactivates. Something like this would be of particular interest
     to folks who run external programs like version control or build
-    related tools on files which they are editing inside of DrScheme."))
+    related tools on files which they are editing inside of DrRacket."))
 
 (define categories '(devtools))
 
@@ -51,15 +46,15 @@ $HeadURL$
 
 (define homepage "http://www.wisdomandwonder.com/")
 
-(define primary-file "drsync.scm")
+(define primary-file "drsync.rkt")
 
-(define required-core-version "4.0")
+(define required-core-version "5.0")
 
 (define repositories '("4.x"))
 
 (define scribblings '(("drsync.scrbl" ())))
 
-(define tools (list "drsync.scm"))
-(define tool-names (list "DrSync"))
-(define tool-icons (list "drsync-icon.png"))
-(define tool-urls  (list "http://www.wisdomandwonder.com/software/"))
+(define drracket-tools (list "drsync.rkt"))
+(define drracket-tool-names (list "DrSync"))
+(define drracket-tool-icons (list "drsync-icon.png"))
+(define drracket-tool-urls  (list "http://www.wisdomandwonder.com/software/"))
