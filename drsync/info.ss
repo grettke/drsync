@@ -51,4 +51,6 @@ $HeadURL$
   
   (define doc.txt "doc.txt")
   
-  (define tools '(("tool.ss"))))
+  (define tools '(("tool.ss")))
+  
+  (define primary-file "drsync.ss"))
