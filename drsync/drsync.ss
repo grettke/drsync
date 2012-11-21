@@ -136,7 +136,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                        (send editor begin-edit-sequence)
                        (let ([pos (file-start-position editor)]
                              [loaded (load-file editor)])
-                         (if loaded (send editor set-position pos pos)))
+                         (when loaded (send editor set-position pos pos)))
                        (send editor end-edit-sequence))))))))
         
         (define handle-deactivation
