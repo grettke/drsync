@@ -1,2 +1,2 @@
-delete drsync.plt
+del drsync.plt
 planet create ./drsync
