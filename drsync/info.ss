@@ -49,8 +49,6 @@ $HeadURL$
 
 (define can-be-loaded-with 'none)
 
-(define doc.txt "doc.txt") ; not present
-
 (define tools '(("drsync.ss")))
 
 (define homepage "http://www.wisdomandwonder.com/")
