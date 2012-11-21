@@ -43,7 +43,7 @@ light_source { <-30,70,100>, White }
 // Button symbol (start/stop)
 #declare c_start = text {
                 ttf "arialbd.ttf" "DS" 2, 0  
-                translate <-0.75, -0.75, 0>
+                translate <-0.6, -0.4, 0>
         }
 
 // Button finish
@@ -72,7 +72,7 @@ difference {
   }
   object { c_start
     texture { pigment { color White } finish { f_content } }
-    scale <0.5,0.5,0.2> translate <0,0,-0.08>
+    scale <1,1,0.2> translate <0,0,-0.08>
   }
 }
 
