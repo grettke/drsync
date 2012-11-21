@@ -129,8 +129,8 @@ $HeadURL$
                    (if (and mem/timestamp (> fs/timestamp mem/timestamp))
                        (begin 
                          (send editor begin-edit-sequence)
-                         (letrec ([pos (file-start-position editor)]
-                                  [loaded (load-file editor)])
+                         (let* ([pos (file-start-position editor)]
+                                [loaded (load-file editor)])
                            (if loaded (send editor set-position pos pos)))
                          (send editor end-edit-sequence))))))))
           
