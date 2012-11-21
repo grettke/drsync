@@ -54,11 +54,11 @@ $HeadURL$
             (if active? (handle-activation) (handle-deactivation))) 
           
           (define each-tab
-            (λ (predicate action)
+            (λ (predicate? action)
               (for-each
                (λ (tab)
                  (let ([editor (send tab get-defs)])
-                   (if (predicate editor) (action editor))))
+                   (if (predicate? editor) (action editor))))
                (send this get-tabs))))
           
           (define file-loaded?
