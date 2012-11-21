@@ -51,7 +51,7 @@ $HeadURL$
 
 (define homepage "http://www.wisdomandwonder.com/")
 
-(define primary-file "drsync.ss")
+(define primary-file "drsync.scm")
 
 (define required-core-version "4.0")
 
@@ -59,7 +59,7 @@ $HeadURL$
 
 (define scribblings '(("drsync.scrbl" ())))
 
-(define tools (list "drsync.ss"))
+(define tools (list "drsync.scm"))
 (define tool-names (list "DrSync"))
 (define tool-icons (list "drsync-icon.png"))
 (define tool-urls  (list "http://www.wisdomandwonder.com/software/"))
