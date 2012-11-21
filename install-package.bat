@@ -1,1 +1,1 @@
-planet --file drsync.plt grettke 2 6
+planet fileinject grettke drsync.plt 2 7
