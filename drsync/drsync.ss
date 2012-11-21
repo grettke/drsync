@@ -78,7 +78,7 @@ $HeadURL$
               (send editor is-modified?)))
           
           ; (path -> number|bool)
-          (define file-timestamp
+          (define fs-timestamp
             (λ (path)
               (with-handlers
                   ((exn:fail:filesystem? (λ (exc) #f)))
