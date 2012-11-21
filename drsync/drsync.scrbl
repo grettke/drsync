@@ -23,8 +23,8 @@ DrSync does two things:
 	file upon returning to DrScheme.")
   (item "If you use an external compilation process, sometimes you forget to
 	save your changes, resulting in phenomena ranging from head scratching to hair pulling.")
-  (item "After manually addressing any of these scenarios three or four hundred times, you will begin 
-	to appreciate any way to make it easier. DrSync is one such way."))
+  (item "After manually addressing any of these scenarios three or four hundred times, you will start 
+        looking for any way to make it easier. DrSync is one such way."))
 
 @section[#:tag "How"]{How}
 
