@@ -27,11 +27,6 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 |#
 #|
-$LastChangedDate$
-$LastChangedRevision$
-$HeadURL$
-|#
-#|
 See the definition of revert in /collects/framework/private/frame.ss on line 1147 for inspiration of the revert functionality in this mixin.
 
 Thanks to everyone's help in the PLT community; writing this tool was relatively "a breeze".
