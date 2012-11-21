@@ -144,7 +144,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
             (each-tab
              (lambda (editor) (file-loaded? editor))
              (lambda (editor) 
-               (if (file-modified? editor) (save-file editor))
+               (when (file-modified? editor) (save-file editor))
                (let* ([path (file-path editor)]
                       [mem/timestamp (mem-timestamp path)]
                       [fs/timestamp (fs-timestamp path)])
