@@ -63,6 +63,13 @@ $HeadURL$
                   ((exn:fail:filesystem? (λ (exc) -1)))
                 (file-or-directory-modify-seconds path))))
           
+          (define load-file
+            (λ (editor)
+              (send editor load-file 
+                    #f 
+                    (send editor get-file-format) 
+                    #t)))
+          
           (define start-position
             (λ (editor)
               (send editor get-start-position)))
@@ -78,10 +85,7 @@ $HeadURL$
                (λ (editor) 
                  (send editor begin-edit-sequence)
                  (letrec ([pos (start-position editor)]
-                          [loaded (send editor load-file 
-                                        #f 
-                                        (send editor get-file-format) 
-                                        #t)])
+                          [loaded (load-file editor)])
                    (if loaded (send editor set-position pos pos)))
                  (send editor end-edit-sequence)))))          
           
