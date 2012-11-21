@@ -120,12 +120,12 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                       [mem/timestamp (mem-timestamp path)]
                       [fs/timestamp (fs-timestamp path)])
                  (when (and mem/timestamp (> fs/timestamp mem/timestamp))
-                     (begin 
-                       (send editor begin-edit-sequence)
-                       (let ([pos (file-start-position editor)]
-                             [loaded (load-file editor)])
-                         (when loaded (send editor set-position pos pos)))
-                       (send editor end-edit-sequence))))))))
+                   (begin 
+                     (send editor begin-edit-sequence)
+                     (let ([pos (file-start-position editor)]
+                           [loaded (load-file editor)])
+                       (when loaded (send editor set-position pos pos)))
+                     (send editor end-edit-sequence))))))))
         
         (define handle-deactivation
           (lambda ()
@@ -137,7 +137,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                       [mem/timestamp (mem-timestamp path)]
                       [fs/timestamp (fs-timestamp path)])
                  (when (or (not mem/timestamp) (> fs/timestamp mem/timestamp))
-                     (set-mem-timestamp path fs/timestamp)))))))
+                   (set-mem-timestamp path fs/timestamp)))))))
         
         (define each-tab
           (lambda (predicate? action)
