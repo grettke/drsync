@@ -83,14 +83,14 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                 ((exn:fail:filesystem? (lambda (exc) -1)))
               (file-or-directory-modify-seconds path))))
         
-        ; (text% : class?) -> bool)
+        ; (text% : class?) -> (boolean?)
         (define load-file
           (lambda (editor)
             (with-handlers
                 ((exn:fail? (lambda (exc) #f)))
               (send editor load-file #f (send editor get-file-format) #t))))
         
-        ; (text% : class?) -> bool)
+        ; (text% : class?) -> (boolean?)
         (define save-file
           (lambda (editor)
             (with-handlers
