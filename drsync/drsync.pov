@@ -40,7 +40,7 @@ light_source { <-30,70,100>, White
 
 // Button symbol (start/stop)
 #declare c_start = text {
-    ttf "timrom.ttf" "POV-RAY 3.0" 1, 0
+    ttf "georgia.ttf" "SYNC" 1, 0
   }
 
 // Button texture
