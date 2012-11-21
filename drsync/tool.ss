@@ -74,10 +74,14 @@ $HeadURL$
               (each-tab
                (λ (editor) (file-loaded? editor))
                (λ (editor) 
-                 (send editor load-file 
-                       #f 
-                       (send editor get-file-format) 
-                       #t)))))
+                 (send editor begin-edit-sequence)
+                 (letrec ([pos (send editor get-start-position)]
+                          [loaded (send editor load-file 
+                                        #f 
+                                        (send editor get-file-format) 
+                                        #t)])
+                   (if loaded (send editor set-position pos pos)))
+                 (send editor end-edit-sequence)))))          
           
           (define handle-deactivation
             (λ ()
@@ -92,4 +96,3 @@ $HeadURL$
           (super-new)))
       
       (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
-
