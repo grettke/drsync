@@ -41,16 +41,12 @@ light_source { <-30,70,100>, White
 // Button symbol (start/stop)
 #declare c_start = union {
         text {
-                ttf "georgia.ttf" "Dr" 1, 0  
-                // Via http://www.povray.org/documentation/view/3.6.1/65/
-                // Assume letters are all 0.5 units high
-                translate <-1, 0, 0>
+                ttf "arial.ttf" "Dr" 2, 0  
+                translate <-1, 0.25, 0>
         }
         text {
-                ttf "georgia.ttf" "Sync" 1, 0  
-                // Via http://www.povray.org/documentation/view/3.6.1/65/
-                // Assume letters are all 0.5 units high
-                translate <-1, -1, 0>
+                ttf "arial.ttf" "Sync" 2, 0  
+                translate <-1, -0.75, 0>
         }
 }
 
