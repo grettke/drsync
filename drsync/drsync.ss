@@ -67,7 +67,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
         ; (path number -> void)
         (define set-mem-timestamp
           (lambda (path stamp)
-            (hash-table-put! 
+            (hash-set! 
              file/timestamps 
              (path->string path)
              stamp)))
