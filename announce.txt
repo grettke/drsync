@@ -1,20 +1,17 @@
-Announce: DrSync, v<ver>
+Announce: DrSync, v1.0.2
 
 Hi folks,
 
 Thanks to some well written documentation along with the help and
 encouragement of the fine members of this mailing list I've prepared
-another release of the DrSync tool for DrScheme.
+another release of DrSync for DrScheme.
 
-DrSync is a tool that saves your files on frame deactivation and
-reverts them on frame activation. This tool is of particular interest
+DrSync is a tool that saves your files on DrScheme frame deactivation and
+reverts them on DrScheme frame activation. This tool is of particular interest
 to folks who run external programs like version control or build
 related tools on files which they are editing inside of DrScheme.
 
-Its current version is <ver>. In other words, <release notes>
-
-Now I need everyone's help in finding out if it works on anyone else's
-machines AND operating systems.
+Its current version is 1.0.2. The big change? It has been updated for 4.x.
 
 All feedback appreciated.
 
