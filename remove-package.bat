@@ -1,1 +1,1 @@
-planet --remove grettke drsync.plt 1 0
+planet --remove grettke drsync.plt 2 4
