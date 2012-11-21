@@ -131,7 +131,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                (let* ([path (file-path editor)]
                       [mem/timestamp (mem-timestamp path)]
                       [fs/timestamp (fs-timestamp path)])
-                 (if (and mem/timestamp (> fs/timestamp mem/timestamp))
+                 (when (and mem/timestamp (> fs/timestamp mem/timestamp))
                      (begin 
                        (send editor begin-edit-sequence)
                        (let ([pos (file-start-position editor)]
