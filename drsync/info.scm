@@ -40,10 +40,10 @@ $HeadURL$
 (define release-notes '((p "Updated for 4.x.")))
 
 (define blurb
-  '("DrSync is a tool that saves your files on frame deactivation "
-    "and reverts them on frame activation. This tool is of particular "
-    "interest to folks who run external programs like version control or "
-    "build related tools on files which they are editing inside of DrScheme."))
+  '("DrSync reverts your files when DrScheme's frame activates and saves them
+    when it deactivates. Something like this would be of particular interest
+    to folks who run external programs like version control or build
+    related tools on files which they are editing inside of DrScheme."))
 
 (define categories '(devtools))
 
