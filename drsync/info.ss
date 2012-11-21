@@ -35,9 +35,9 @@ $HeadURL$
   
   (define name "DrSync")
   
-  (define version "1.0alpha")
+  (define version "0.5")
   
-  (define release-notes (list "It works on my machine!"))
+  (define release-notes (list "It works on my machine; we are half way to finished."))
   
   (define blurb
     (list
