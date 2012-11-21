@@ -72,11 +72,6 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
             (send editor get-filename)))
         
         ; (text% -> bool)
-        (define file-loaded?
-          (lambda (editor)
-            (file-path editor)))
-        
-        ; (text% -> bool)
         (define file-modified?
           (lambda (editor)
             (send editor is-modified?)))
@@ -114,7 +109,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
         (define handle-activation
           (lambda ()              
             (each-tab
-             (lambda (editor) (file-loaded? editor))
+             (lambda (editor) (file-path editor))
              (lambda (editor) 
                (let* ([path (file-path editor)]
                       [mem/timestamp (mem-timestamp path)]
@@ -130,7 +125,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
         (define handle-deactivation
           (lambda ()
             (each-tab
-             (lambda (editor) (file-loaded? editor))
+             (lambda (editor) (file-path editor))
              (lambda (editor) 
                (when (file-modified? editor) (save-file editor))
                (let* ([path (file-path editor)]
