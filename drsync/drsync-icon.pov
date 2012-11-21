@@ -41,15 +41,15 @@ light_source { <-30,70,100>, White }
 }
 
 // Button symbol (start/stop)
-#declare c_start = union {
-        text {
-                ttf "arial.ttf" "Dr" 2, 0  
-                translate <-0.475, 0.25, 0>
-        }
-        text {
-                ttf "arial.ttf" "Sync" 2, 0  
-                translate <-1.1, -0.75, 0>
-        }
+#declare c_start = merge {
+  difference {
+    cylinder { <0,0,0>,<0,0,1>,1 }
+    union {
+      cylinder { <0,0,-1>,<0,0,2>,0.7 }
+      box { <-0.3,0,-1>,<0.3,2,2> }
+    }
+  }
+  box { <-0.15,0.2,0>,<0.15,1.2,1> }
 }
 
 // Button finish
@@ -73,12 +73,12 @@ light_source { <-30,70,100>, White }
 // Button and contents
 difference {
   object { b_rsquare
-    texture { pigment { color Blue } finish { f_button } }
+    texture { pigment { color Red } finish { f_button } }
     scale <0.9,0.9,1>
   }
   object { c_start
-    texture { pigment { color Yellow } finish { f_content } }
-    scale <0.7,0.7,0.2> translate <0,0,-0.08>
+    texture { pigment { color White } finish { f_content } }
+    scale <0.5,0.5,0.2> translate <0,0,-0.08>
   }
 }
 
