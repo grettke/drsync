@@ -49,9 +49,9 @@ $HeadURL$
 
 (define can-be-loaded-with 'none)
 
-(define doc.txt "doc.txt")
+(define doc.txt "doc.txt") ; not present
 
-(define tools '(("drsync.ss")))
+(define tools '(("drsync.ss"))) ; not present
 
 (define primary-file "drsync.ss")
 
