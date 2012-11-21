@@ -58,3 +58,5 @@ $HeadURL$
 (define required-core-version "4.0")
 
 (define repositories '("4.x"))
+
+(define scribblings '(("drsync.scrbl" () (tool) "DrSync")))
