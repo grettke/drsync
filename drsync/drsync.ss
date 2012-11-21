@@ -49,20 +49,42 @@ $HeadURL$
       (define drsync-frame-mixin
         (mixin (drscheme:unit:frame<%>) () 
           
+          (define file/timestamps (make-hash-table 'equal))
+          
+          ; (path -> number|bool)
+          (define mem-timestamp
+            (λ (path)
+              (hash-table-get 
+               file/timestamps 
+               (path->string path)
+               #f)))
+          
+          ; (path number -> void)
+          (define set-mem-timestamp
+            (λ (path stamp)
+              (hash-table-put! 
+               file/timestamps 
+               (path->string path)
+               stamp)))
+          
+          ; (text% -> bool)
           (define file-loaded?
             (λ (editor)
               (send editor get-filename)))
           
+          ; (text% -> bool)
           (define file-modified?
             (λ (editor)
               (send editor is-modified?)))
           
+          ; (path -> number|bool)
           (define file-timestamp
             (λ (path)
               (with-handlers
-                  ((exn:fail:filesystem? (λ (exc) -1)))
+                  ((exn:fail:filesystem? (λ (exc) #f)))
                 (file-or-directory-modify-seconds path))))
           
+          ; (text% -> bool)
           (define load-file
             (λ (editor)
               (send editor load-file 
@@ -70,6 +92,7 @@ $HeadURL$
                     (send editor get-file-format) 
                     #t)))
           
+          ; (text% -> bool)
           (define save-file
             (λ (editor)
               (send editor save-file 
@@ -77,6 +100,7 @@ $HeadURL$
                     (send editor get-file-format) 
                     #t)))
           
+          ; (text% -> number)
           (define start-position
             (λ (editor)
               (send editor get-start-position)))
