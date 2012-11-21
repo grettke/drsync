@@ -40,11 +40,10 @@ $HeadURL$
   (define release-notes (list "It works on my machine; we are half way to finished."))
   
   (define blurb
-    (list
-     "DrSync is a tool that saves your files on frame deactivation "
-     "and reverts them on frame activation. This tool is of particular "
-     "interest to folks who run external programs like version control or "
-     "build related tools on files which they are editing inside of DrScheme."))
+    '("DrSync is a tool that saves your files on frame deactivation "
+      "and reverts them on frame activation. This tool is of particular "
+      "interest to folks who run external programs like version control or "
+      "build related tools on files which they are editing inside of DrScheme."))
   
   (define categories '(devtools))
   
@@ -52,4 +51,4 @@ $HeadURL$
   
   (define doc.txt "doc.txt")
   
-  (define tools (list (list "tool.ss"))))
+  (define tools '(("tool.ss"))))
