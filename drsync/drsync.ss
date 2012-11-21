@@ -54,7 +54,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
     (define drsync-frame-mixin
       (mixin (drscheme:unit:frame<%>) () 
         
-        (define file/timestamps (make-hash-table 'equal))
+        (define file/timestamps (make-hash))
         
         ; (path -> number|bool)
         (define mem-timestamp
