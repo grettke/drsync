@@ -58,7 +58,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           
           ; (path -> number|bool)
           (define mem-timestamp
-            (λ (path)
+            (lambda (path)
               (hash-table-get 
                file/timestamps 
                (path->string path)
@@ -66,7 +66,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           
           ; (path number -> void)
           (define set-mem-timestamp
-            (λ (path stamp)
+            (lambda (path stamp)
               (hash-table-put! 
                file/timestamps 
                (path->string path)
@@ -74,31 +74,31 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           
           ; (text% -> path)
           (define file-path
-            (λ (editor)
+            (lambda (editor)
               (send editor get-filename)))
           
           ; (text% -> bool)
           (define file-loaded?
-            (λ (editor)
+            (lambda (editor)
               (file-path editor)))
           
           ; (text% -> bool)
           (define file-modified?
-            (λ (editor)
+            (lambda (editor)
               (send editor is-modified?)))
           
           ; (path -> number)
           (define fs-timestamp
-            (λ (path)
+            (lambda (path)
               (with-handlers
-                  ((exn:fail:filesystem? (λ (exc) -1)))
+                  ((exn:fail:filesystem? (lambda (exc) -1)))
                 (file-or-directory-modify-seconds path))))
           
           ; (text% -> bool)
           (define load-file
-            (λ (editor)
+            (lambda (editor)
               (with-handlers
-                  ((exn:fail? (λ (exc) #f)))
+                  ((exn:fail? (lambda (exc) #f)))
                 (send editor load-file 
                       #f 
                       (send editor get-file-format) 
@@ -106,9 +106,9 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           
           ; (text% -> bool)
           (define save-file
-            (λ (editor)
+            (lambda (editor)
               (with-handlers
-                  ((exn:fail? (λ (exc) #f)))
+                  ((exn:fail? (lambda (exc) #f)))
                 (send editor save-file 
                       #f 
                       (send editor get-file-format) 
@@ -116,7 +116,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           
           ; (text% -> number)
           (define file-start-position
-            (λ (editor)
+            (lambda (editor)
               (send editor get-start-position)))
           
           (define/override (on-activate active?)
@@ -124,10 +124,10 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
             (if active? (handle-activation) (handle-deactivation))) 
           
           (define handle-activation
-            (λ ()              
+            (lambda ()              
               (each-tab
-               (λ (editor) (file-loaded? editor))
-               (λ (editor) 
+               (lambda (editor) (file-loaded? editor))
+               (lambda (editor) 
                  (let* ([path (file-path editor)]
                         [mem/timestamp (mem-timestamp path)]
                         [fs/timestamp (fs-timestamp path)])
@@ -140,10 +140,10 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                          (send editor end-edit-sequence))))))))
           
           (define handle-deactivation
-            (λ ()
+            (lambda ()
               (each-tab
-               (λ (editor) (file-loaded? editor))
-               (λ (editor) 
+               (lambda (editor) (file-loaded? editor))
+               (lambda (editor) 
                  (if (file-modified? editor) (save-file editor))
                  (let* ([path (file-path editor)]
                         [mem/timestamp (mem-timestamp path)]
@@ -152,9 +152,9 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                        (set-mem-timestamp path fs/timestamp)))))))
           
           (define each-tab
-            (λ (predicate? action)
+            (lambda (predicate? action)
               (for-each
-               (λ (tab)
+               (lambda (tab)
                  (let ([editor (send tab get-defs)])
                    (if (predicate? editor) (action editor))))
                (send this get-tabs))))
