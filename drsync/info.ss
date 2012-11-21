@@ -62,4 +62,4 @@ $HeadURL$
 (define tools (list "drsync.ss"))
 (define tool-names (list "DrSync"))
 (define tool-icons (list "drsync-icon.png"))
-(define tool-urls  (list "http://www.wisdomandwonder.com/"))
+(define tool-urls  (list "http://www.wisdomandwonder.com/software/"))
