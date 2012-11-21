@@ -59,4 +59,4 @@ $HeadURL$
 
 (define repositories '("4.x"))
 
-(define scribblings '(("drsync.scrbl" () (tool) "DrSync")))
+(define scribblings '(("drsync.scrbl" ())))
