@@ -39,16 +39,10 @@ light_source { <-30,70,100>, White
 }
 
 // Button symbol (start/stop)
-#declare c_start = merge {
-  difference {
-    cylinder { <0,0,0>,<0,0,1>,1 }
-    union {
-      cylinder { <0,0,-1>,<0,0,2>,0.7 }
-      box { <-0.3,0,-1>,<0.3,2,2> }
-    }
+#declare c_start = text {
+    ttf "timrom.ttf" "POV-RAY 3.0" 1, 0
+    pigment { Red }
   }
-  box { <-0.15,0.2,0>,<0.15,1.2,1> }
-}
 
 // Button texture
 #declare t_button = texture {
