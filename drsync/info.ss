@@ -37,7 +37,7 @@ $HeadURL$
   
   (define version "0.53")
   
-  (define release-notes '("Functions ought to stand on their own, catch exceptions if the can be thrown. Runs on Linux, too."))
+  (define release-notes '("Functions ought to stand on their own, catch exceptions if they can be thrown. Runs on Linux, too."))
   
   (define blurb
     '("DrSync is a tool that saves your files on frame deactivation "
