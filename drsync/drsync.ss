@@ -101,7 +101,7 @@ $HeadURL$
                     #t)))
           
           ; (text% -> number)
-          (define start-position
+          (define file-start-position
             (λ (editor)
               (send editor get-start-position)))
           
@@ -115,7 +115,7 @@ $HeadURL$
                (λ (editor) (file-loaded? editor))
                (λ (editor) 
                  (send editor begin-edit-sequence)
-                 (letrec ([pos (start-position editor)]
+                 (letrec ([pos (file-start-position editor)]
                           [loaded (load-file editor)])
                    (if loaded (send editor set-position pos pos)))
                  (send editor end-edit-sequence)))))          
