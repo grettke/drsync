@@ -1,1 +1,1 @@
-planet --create-archive ./drsync
+planet create ./drsync
