@@ -21,14 +21,14 @@
           
           (define/override (on-activate active?)
             (super on-activate active?)
-            (if active? (on-activation)
-                (on-deactivation)))
+            (if active? (handle-activation)
+                (handle-deactivation)))
           
-          (define on-activation
+          (define handle-activation
             (λ ()
               void))
           
-          (define on-deactivation
+          (define handle-deactivation
             (λ ()
               (for-each
                (λ (tab)
