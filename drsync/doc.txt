@@ -41,7 +41,7 @@ DrSync follows the KIS principle: Keep It Simple.
 	TXT files in the editor makes no difference. If there is a file open in
 	a tab, it will be synchronized.
 
-3.	Synchroniztion always occurs, it is not configurable. If you use this 
+3.	Synchronization always occurs, it is not configurable. If you use this 
 	tool, you most probably have a good reason to do so, and in the long 
 	run you will be better off always knowing that your files are in sync
 	at all times.
