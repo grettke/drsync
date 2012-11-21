@@ -17,14 +17,14 @@ DrSync does two things:
 @section[#:tag "Why"]{Why}
 
 @(itemize    
-  (item "Switching between DrScheme and your version control client, it is
-	easier knowing that your file is saved, and ready for a commit. After
-	going through this process only fifty or sixty times, you will begin 
-	to appreciate any way to make it easier.")
+  (item "When switching between DrScheme and your favorite version control client, it is
+	easier knowing that your file is saved, and ready for a commit.")
   (item "If you use version control keyword expansion, you need to revert your
-	file each time you return to DrScheme.")
+	file upon returning to DrScheme.")
   (item "If you use an external compilation process, sometimes you forget to
-	save your changes, resulting in your quizzical stares and hair pulling."))
+	save your changes, resulting in phenomena ranging from head scratching to hair pulling.")
+  (item "After performing any of these processes manually three or four hundred times, you will begin 
+	to appreciate any way to make it easier."))
 
 @section[#:tag "How"]{How}
 
