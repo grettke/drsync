@@ -42,7 +42,7 @@ light_source { <-30,70,100>, White
 #declare c_start = union {
         text {
                 ttf "arial.ttf" "Dr" 2, 0  
-                translate <-1, 0.25, 0>
+                translate <-0.5, 0.25, 0>
         }
         text {
                 ttf "arial.ttf" "Sync" 2, 0  
