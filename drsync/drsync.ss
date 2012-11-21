@@ -117,9 +117,8 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                  (when (and mem/timestamp (> fs/timestamp mem/timestamp))
                    (begin 
                      (send editor begin-edit-sequence)
-                     (when (load-file editor) 
-                       (let ([pos (file-start-position editor)])
-                         (send editor set-position pos pos)))
+                     (let ([pos (file-start-position editor)])
+                       (when (load-file editor) (send editor set-position pos pos)))
                      (send editor end-edit-sequence))))))))
         
         (define handle-deactivation
