@@ -62,11 +62,11 @@ light_source { <-30,70,100>, White }
 // Button and contents
 difference {
   object { b_rsquare
-    texture { pigment { color Red } finish { f_button } }
+    texture { pigment { color Blue } finish { f_button } }
     scale <0.9,0.9,1>
   }
   object { c_start
-    texture { pigment { color White } finish { f_content } }
+    texture { pigment { color Yellow } finish { f_content } }
     scale <0.5,0.5,0.2> translate <0,0,-0.08>
   }
 }
