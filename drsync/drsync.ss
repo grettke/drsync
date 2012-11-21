@@ -124,9 +124,9 @@ $HeadURL$
                (λ (editor) (file-loaded? editor))
                (λ (editor) 
                  (let* ([path (get-file-path editor)]
-                        [prev/timestamp (mem-timestamp path)]
+                        [mem/timestamp (mem-timestamp path)]
                         [fs/timestamp (fs-timestamp path)])
-                   (if (and prev/timestamp (> fs/timestamp prev/timestamp))
+                   (if (and mem/timestamp (> fs/timestamp mem/timestamp))
                        (begin 
                          (send editor begin-edit-sequence)
                          (letrec ([pos (file-start-position editor)]
