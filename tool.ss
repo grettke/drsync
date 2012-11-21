@@ -1,7 +1,7 @@
 ; $LastChangedDate$
 ; $LastChangedRevision$
 ; $HeadURL$
-(module drsyncnsave mzscheme
+(module tool mzscheme
   (require (lib "tool.ss" "drscheme")
            (lib "mred.ss" "mred")
            (lib "unitsig.ss"))
