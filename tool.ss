@@ -17,16 +17,27 @@
       (define phase2 void) 
       
       (define activate-frame-mixin%
-        (mixin (top-level-window<%>) () 
-          (define not-showed-on #t)
-          (define not-showed-off #t)
+        (mixin (drscheme:unit:frame<%>) () 
           (define/override (on-activate active?)
             (super on-activate active?)
-            (cond [(and active? not-showed-on) 
-                   (message-box "" "Activated") (set! not-showed-on #f)]
-                  [(and (not active?) not-showed-off)
-                   (message-box "" "Deactivated") (set! not-showed-off #f)]
-                  [else void]))
-          (super-new)))
-      
-      (drscheme:get/extend:extend-unit-frame activate-frame-mixin%))))
+            (if active? (on-activation)
+                (on-deactivation)))
+          (define on-activation
+            (λ ()
+              void))
+          (define on-deactivation
+            (λ ()
+              (for-each
+               (λ (tab)
+                 (let ([editor (send tab get-defs)])
+                   (if (and (send editor get-filename) (send editor is-modified?))
+                       (send editor save-file 
+                             #f 
+                             (send editor get-file-format) 
+                             #t)
+                       void)))               
+               (send this get-tabs))))
+            (super-new)))
+        
+        (drscheme:get/extend:extend-unit-frame activate-frame-mixin%))))
+  
