@@ -31,28 +31,28 @@ $LastChangedDate$
 $LastChangedRevision$
 $HeadURL$
 |#
-(module info (lib "infotab.ss" "setup")
-  
-  (define name "DrSync")
-  
-  (define version "1.0.1")
-  
-  (define release-notes '("As good as it gets!"))
-  
-  (define blurb
-    '("DrSync is a tool that saves your files on frame deactivation "
-      "and reverts them on frame activation. This tool is of particular "
-      "interest to folks who run external programs like version control or "
-      "build related tools on files which they are editing inside of DrScheme."))
-  
-  (define categories '(devtools))
-  
-  (define can-be-loaded-with 'none)
-  
-  (define doc.txt "doc.txt")
-  
-  (define tools '(("drsync.ss")))
-  
-  (define primary-file "drsync.ss")
-  
-  (define required-core-version "370"))
+#lang setup/infotab
+
+(define name "DrSync")
+
+(define version "1.0.1")
+
+(define release-notes '("As good as it gets!"))
+
+(define blurb
+  '("DrSync is a tool that saves your files on frame deactivation "
+    "and reverts them on frame activation. This tool is of particular "
+    "interest to folks who run external programs like version control or "
+    "build related tools on files which they are editing inside of DrScheme."))
+
+(define categories '(devtools))
+
+(define can-be-loaded-with 'none)
+
+(define doc.txt "doc.txt")
+
+(define tools '(("drsync.ss")))
+
+(define primary-file "drsync.ss")
+
+(define required-core-version "370")
