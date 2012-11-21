@@ -35,9 +35,9 @@ $HeadURL$
   
   (define name "DrSync")
   
-  (define version "0.61")
+  (define version "1.0")
   
-  (define release-notes '("A couple of folks have run it on Macs, including myself. Refactored a tiny bit."))
+  (define release-notes '("As good as it gets!"))
   
   (define blurb
     '("DrSync is a tool that saves your files on frame deactivation "
