@@ -38,9 +38,9 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
 |#
 #lang scheme/base
 (require (lib "tool.ss" "drscheme")
-         (lib "mred.ss" "mred")
-         (lib "unit.ss")
-         (lib "class.ss"))
+         mred
+         mzlib/unit
+         scheme/class)
 
 (provide tool@)
 
