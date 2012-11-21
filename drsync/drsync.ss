@@ -56,12 +56,12 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
         
         (define file/timestamps (make-hash))
         
-        ; (path -> number|bool)
+        ; (path-string?) -> (or/c exact-integer? false/c)
         (define mem-timestamp
           (lambda (path)
             (hash-ref file/timestamps (path->string path) #f)))
         
-        ; (path number -> void)
+        ; (path-string?) -> (or/c exact-integer? false/c) -> (void)
         (define set!-mem-timestamp
           (lambda (path stamp)
             (hash-set! file/timestamps (path->string path) stamp)))
