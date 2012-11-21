@@ -6,25 +6,25 @@
 
 This is DrSync, written by Grant Rettke (grettke@elem["@"]acm.org).
 
-@section[#:tag "What"]{What}
+@section[#:tag "What"]{What it does}
 
 @(itemize    
   (item "DrSync reverts your files when DrScheme's frame activates and saves them
         when it deactivates. "))
 
-@section[#:tag "Why"]{Why}
+@section[#:tag "Why"]{Why you might want to use it}
 
 @(itemize    
   (item "When switching between DrScheme and your favorite version control client, it is
 	easier knowing that your file is saved, and ready for a commit.")
-  (item "If you use version control keyword expansion, you need to revert your
+  (item "If you use version control keyword expansion, after a commit you need to revert your
 	file upon returning to DrScheme.")
   (item "If you use an external compilation process, sometimes you forget to
 	save your changes, resulting in phenomena ranging from head scratching to hair pulling.")
   (item "After manually addressing any of these scenarios three or four hundred times, you will start 
         looking for any way to make it easier. DrSync is one such way."))
 
-@section[#:tag "How"]{How}
+@section[#:tag "How"]{How it works}
 
 DrSync follows the KIS principle: Keep It Simple.
 
