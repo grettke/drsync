@@ -71,12 +71,12 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           (lambda (editor)
             (send editor get-filename)))
         
-        ; (text% : class?) -> bool)
+        ; (text% : class?) -> (boolean?)
         (define file-modified?
           (lambda (editor)
             (send editor is-modified?)))
         
-        ; (path -> number)
+        ; (path-string?) -> (or/c exact-integer? false/c)
         (define fs-timestamp
           (lambda (path)
             (with-handlers
