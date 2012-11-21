@@ -9,6 +9,14 @@ Width=32
 Height=32
 Antialias=Off
 Output_File_Type=N
+Output_Alpha=On    
+
+[32x32, AA 1]
+Width=32
+Height=32
+Antialias=On
+Antialias_Threshold=1
+Output_File_Type=N
 Output_Alpha=On 
 */
 
