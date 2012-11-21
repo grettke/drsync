@@ -35,8 +35,7 @@ DrSync follows the KIS principle: Keep It Simple.
         For example, opening file menus, switching between tabs, or moving
 	between the editor and the REPL, will not trigger synchronization.
         Opening any dialog, however, will trigger synchronization.")
-  (item "Every type of file will be synchronized. Whether you edit SS, SCM, or
-	TXT files in the editor makes no difference. If there is a file open in
+  (item "Every editor is synchronized. If there is a file open in
 	a tab, it will be synchronized.")
   (item "Synchronization always occurs, it is not configurable. If you use this 
 	tool, you most probably have a good reason to do so, and in the long 
