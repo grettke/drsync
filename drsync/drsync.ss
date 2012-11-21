@@ -148,7 +148,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                (let* ([path (file-path editor)]
                       [mem/timestamp (mem-timestamp path)]
                       [fs/timestamp (fs-timestamp path)])
-                 (if (or (not mem/timestamp) (> fs/timestamp mem/timestamp))
+                 (when (or (not mem/timestamp) (> fs/timestamp mem/timestamp))
                      (set-mem-timestamp path fs/timestamp)))))))
         
         (define each-tab
