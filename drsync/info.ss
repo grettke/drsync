@@ -39,7 +39,7 @@ $HeadURL$
      "DrSync is a tool that saves your files on frame deactivation "
      "and reverts them on frame activation. This tool is of particular "
      "interest to folks who run external programs like version control or "
-     "compiler tools on files which they are editing inside of DrScheme."))
+     "build related tools on files which they are editing inside of DrScheme."))
   
   (define categories '(devtools))
   
