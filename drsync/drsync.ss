@@ -31,6 +31,9 @@ $LastChangedDate$
 $LastChangedRevision$
 $HeadURL$
 |#
+#|
+See the definition of revert in /collects/framework/private/frame.ss on line 1147 for inspiration of the revert functionality in this mixin.
+|#
 (module drsync mzscheme
   (require (lib "tool.ss" "drscheme")
            (lib "mred.ss" "mred")
