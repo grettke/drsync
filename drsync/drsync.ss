@@ -70,6 +70,13 @@ $HeadURL$
                     (send editor get-file-format) 
                     #t)))
           
+          (define save-file
+            (λ (editor)
+              (send editor save-file 
+                    #f 
+                    (send editor get-file-format) 
+                    #t)))
+          
           (define start-position
             (λ (editor)
               (send editor get-start-position)))
@@ -93,11 +100,7 @@ $HeadURL$
             (λ ()
               (each-tab
                (λ (editor) (and (file-loaded? editor) (file-modified? editor)))
-               (λ (editor)
-                 (send editor save-file 
-                       #f 
-                       (send editor get-file-format) 
-                       #t)))))
+               (λ (editor) (save-file editor)))))
           
           (define each-tab
             (λ (predicate? action)
