@@ -18,13 +18,16 @@
       
       (define drsync-frame-mixin%
         (mixin (drscheme:unit:frame<%>) () 
+          
           (define/override (on-activate active?)
             (super on-activate active?)
             (if active? (on-activation)
                 (on-deactivation)))
+          
           (define on-activation
             (λ ()
               void))
+          
           (define on-deactivation
             (λ ()
               (for-each
@@ -37,6 +40,7 @@
                              #t)
                        void)))               
                (send this get-tabs))))
+          
             (super-new)))
         
         (drscheme:get/extend:extend-unit-frame drsync-frame-mixin%))))
