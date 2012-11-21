@@ -1,5 +1,16 @@
 // Credit: Eric Bainville - Mar 2007
-// Location: http://www.bealto.com/geo-povray-buttons_sky.html
+// Location: http://www.bealto.com/geo-povray-buttons_sky.html      
+
+// Added this to the resolution INI file
+
+/*
+[32x32, No AA]
+Width=32
+Height=32
+Antialias=Off
+Output_File_Type=N
+Output_Alpha=On 
+*/
 
 #include "colors.inc"
 #include "metals.inc"
