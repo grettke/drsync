@@ -6,7 +6,7 @@
 
 @section[#:tag "What"]{What}
 
-This is DrSync, written by Grant Rettke (grettke@acm.org).
+This is DrSync, written by Grant Rettke (grettke@elem["@"]acm.org).
 
 DrSync does two things:
 
