@@ -59,10 +59,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
         ; (path -> number|bool)
         (define mem-timestamp
           (lambda (path)
-            (hash-ref 
-             file/timestamps 
-             (path->string path)
-             #f)))
+            (hash-ref file/timestamps (path->string path) #f)))
         
         ; (path number -> void)
         (define set-mem-timestamp
