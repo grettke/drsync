@@ -134,8 +134,8 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                    (if (and mem/timestamp (> fs/timestamp mem/timestamp))
                        (begin 
                          (send editor begin-edit-sequence)
-                         (let* ([pos (file-start-position editor)]
-                                [loaded (load-file editor)])
+                         (let ([pos (file-start-position editor)]
+                               [loaded (load-file editor)])
                            (if loaded (send editor set-position pos pos)))
                          (send editor end-edit-sequence))))))))
           
