@@ -37,7 +37,7 @@ DrSync follows the KIS principle: Keep It Simple.
         Opening any dialog, however, will trigger synchronization.")
   (item "Every editor is synchronized. If there is a file open in
 	a tab, it will be synchronized.")
-  (item "Synchronization always occurs, it is not configurable. If you use this 
+  (item "This tool may not be disabled. If you use this 
 	tool, you most probably have a good reason to do so, and in the long 
 	run you will be better off always knowing that your files are in sync
 	at all times."))
