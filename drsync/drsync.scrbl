@@ -6,6 +6,8 @@
 
 @section[#:tag "What"]{What}
 
+This is DrSync, written by Grant Rettke (grettke@acm.org).
+
 DrSync does two things:
 
 @(itemize    
