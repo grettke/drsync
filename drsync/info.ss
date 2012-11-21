@@ -53,4 +53,6 @@ $HeadURL$
   
   (define tools '(("drsync.ss")))
   
-  (define primary-file "drsync.ss"))
+  (define primary-file "drsync.ss")
+  
+  (define required-core-version "370"))
