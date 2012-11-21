@@ -59,4 +59,4 @@ $HeadURL$
 
 (define required-core-version "4.0")
 
-(define repositories "4.x")
+(define repositories '("4.x"))
