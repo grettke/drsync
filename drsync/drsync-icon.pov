@@ -67,7 +67,7 @@ difference {
   }
   object { c_start
     texture { pigment { color Yellow } finish { f_content } }
-    scale <0.5,0.5,0.2> translate <0,0,-0.08>
+    scale <0.7,0.7,0.2> translate <0,0,-0.08>
   }
 }
 
