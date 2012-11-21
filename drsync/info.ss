@@ -35,9 +35,9 @@ $HeadURL$
   
   (define name "DrSync")
   
-  (define version "0.51")
+  (define version "0.52")
   
-  (define release-notes '("It works right on my machine, and probably yours too, but I should have told you only on 370 or newer."))
+  (define release-notes '("Don't be lazy, only reload files on frame activation if those files have changed!"))
   
   (define blurb
     '("DrSync is a tool that saves your files on frame deactivation "
