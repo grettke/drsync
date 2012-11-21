@@ -156,7 +156,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
             (for-each
              (lambda (tab)
                (let ([editor (send tab get-defs)])
-                 (if (predicate? editor) (action editor))))
+                 (when (predicate? editor) (action editor))))
              (send this get-tabs))))
         
         (super-new)))
