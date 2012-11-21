@@ -100,10 +100,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           (lambda (editor)
             (with-handlers
                 ((exn:fail? (lambda (exc) #f)))
-              (send editor save-file 
-                    #f 
-                    (send editor get-file-format) 
-                    #t))))
+              (send editor save-file #f (send editor get-file-format) #t))))
         
         ; (text% -> number)
         (define file-start-position
