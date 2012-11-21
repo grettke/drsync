@@ -49,8 +49,6 @@ $HeadURL$
 
 (define can-be-loaded-with 'none)
 
-(define tools '(("drsync.ss")))
-
 (define homepage "http://www.wisdomandwonder.com/")
 
 (define primary-file "drsync.ss")
@@ -60,3 +58,8 @@ $HeadURL$
 (define repositories '("4.x"))
 
 (define scribblings '(("drsync.scrbl" ())))
+
+(define tools '(("drsync.ss")))
+(define tool-names '("DrSync"))
+; (define tool-icons '(("drsync-icon.png" "drsync")))
+(define tool-urls  '("http://www.wisdomandwonder.com/"))
