@@ -68,14 +68,14 @@ $HeadURL$
                stamp)))
           
           ; (text% -> path)
-          (define get-file-path
+          (define file-path
             (λ (editor)
               (send editor get-filename)))
           
           ; (text% -> bool)
           (define file-loaded?
             (λ (editor)
-              (get-file-path editor)))
+              (file-path editor)))
           
           ; (text% -> bool)
           (define file-modified?
@@ -123,7 +123,7 @@ $HeadURL$
               (each-tab
                (λ (editor) (file-loaded? editor))
                (λ (editor) 
-                 (let* ([path (get-file-path editor)]
+                 (let* ([path (file-path editor)]
                         [mem/timestamp (mem-timestamp path)]
                         [fs/timestamp (fs-timestamp path)])
                    (if (and mem/timestamp (> fs/timestamp mem/timestamp))
@@ -140,7 +140,7 @@ $HeadURL$
                (λ (editor) (file-loaded? editor))
                (λ (editor) 
                  (if (file-modified? editor) (save-file editor))
-                 (let* ([path (get-file-path editor)]
+                 (let* ([path (file-path editor)]
                         [mem/timestamp (mem-timestamp path)]
                         [fs/timestamp (fs-timestamp path)])
                    (if (or (not mem/timestamp) (> fs/timestamp mem/timestamp))
