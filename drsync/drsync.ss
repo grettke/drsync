@@ -31,7 +31,7 @@ $LastChangedDate$
 $LastChangedRevision$
 $HeadURL$
 |#
-(module tool mzscheme
+(module drsync mzscheme
   (require (lib "tool.ss" "drscheme")
            (lib "mred.ss" "mred")
            (lib "unit.ss")
