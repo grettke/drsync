@@ -67,10 +67,15 @@ $HeadURL$
                (path->string path)
                stamp)))
           
+          ; (text% -> path)
+          (define get-file-path
+            (λ (editor)
+              (send editor get-filename)))
+          
           ; (text% -> bool)
           (define file-loaded?
             (λ (editor)
-              (send editor get-filename)))
+              (get-file-path editor)))
           
           ; (text% -> bool)
           (define file-modified?
@@ -104,11 +109,6 @@ $HeadURL$
           (define file-start-position
             (λ (editor)
               (send editor get-start-position)))
-          
-          ; (text% -> path)
-          (define get-file-path
-            (λ (editor)
-              (send editor get-filename)))
           
           (define/override (on-activate active?)
             (super on-activate active?)
