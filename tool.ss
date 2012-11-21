@@ -21,8 +21,7 @@
           
           (define/override (on-activate active?)
             (super on-activate active?)
-            (if active? (handle-activation)
-                (handle-deactivation)))
+            (if active? (handle-activation) (handle-deactivation)))
           
           (define handle-activation
            (λ ()
