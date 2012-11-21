@@ -71,7 +71,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           (lambda (editor)
             (send editor get-filename)))
         
-        ; (text% -> bool)
+        ; (text% : class?) -> bool)
         (define file-modified?
           (lambda (editor)
             (send editor is-modified?)))
@@ -83,21 +83,21 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                 ((exn:fail:filesystem? (lambda (exc) -1)))
               (file-or-directory-modify-seconds path))))
         
-        ; (text% -> bool)
+        ; (text% : class?) -> bool)
         (define load-file
           (lambda (editor)
             (with-handlers
                 ((exn:fail? (lambda (exc) #f)))
               (send editor load-file #f (send editor get-file-format) #t))))
         
-        ; (text% -> bool)
+        ; (text% : class?) -> bool)
         (define save-file
           (lambda (editor)
             (with-handlers
                 ((exn:fail? (lambda (exc) #f)))
               (send editor save-file #f (send editor get-file-format) #t))))
         
-        ; (text% -> number)
+        ; (text% : class?) -> number)
         (define file-start-position
           (lambda (editor)
             (send editor get-start-position)))
