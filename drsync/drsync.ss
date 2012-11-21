@@ -97,7 +97,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                 ((exn:fail? (lambda (exc) #f)))
               (send editor save-file #f (send editor get-file-format) #t))))
         
-        ; (text% : class?) -> number)
+        ; (text% : class?) -> (nonnegative-exact-integer?)
         (define file-start-position
           (lambda (editor)
             (send editor get-start-position)))
