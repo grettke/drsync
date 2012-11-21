@@ -55,4 +55,4 @@ $HeadURL$
 
 (define primary-file "drsync.ss")
 
-(define required-core-version "370")
+(define required-core-version "4.0")
