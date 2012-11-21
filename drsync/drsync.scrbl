@@ -8,11 +8,9 @@ This is DrSync, written by Grant Rettke (grettke@elem["@"]acm.org).
 
 @section[#:tag "What"]{What}
 
-DrSync does two things:
-
 @(itemize    
-  (item "Synchronizes files on DrScheme frame activation.")
-  (item "Saves files on DrScheme frame deactivation."))
+  (item "DrSync reverts your files when DrScheme's frame activates and saves them
+        when it deactivates. "))
 
 @section[#:tag "Why"]{Why}
 
