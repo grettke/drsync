@@ -27,32 +27,31 @@
             (λ (thunk)
               (for-each
                (λ (tab)
-                 (thunk tab))
+                 (let ([editor (send tab get-defs)])
+                   (thunk editor)))
                (send this get-tabs))))
           
           (define handle-activation
             (λ ()
               (each-tab
-               (λ (tab)
-                 (let ([editor (send tab get-defs)])
-                   (if (send editor get-filename)
-                       (send editor load-file 
-                             #f 
-                             (send editor get-file-format) 
-                             #t)))))))
+               (λ (editor)                 
+                 (if (send editor get-filename)
+                     (send editor load-file 
+                           #f 
+                           (send editor get-file-format) 
+                           #t))))))
           
           (define handle-deactivation
             (λ ()
               (each-tab
-               (λ (tab)
-                 (let ([editor (send tab get-defs)])
-                   (if (and (send editor get-filename) (send editor is-modified?))
-                       (send editor save-file 
-                             #f 
-                             (send editor get-file-format) 
-                             #t)))))))
-          
-          (super-new)))
-      
-      (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
+               (λ (editor)
+                 (if (and (send editor get-filename) (send editor is-modified?))
+                     (send editor save-file 
+                           #f 
+                           (send editor get-file-format) 
+                           #t))))))
+        
+        (super-new)))
+    
+    (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
 
