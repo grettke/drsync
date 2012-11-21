@@ -4,9 +4,9 @@
 
 @title{DrSync: A file synchronization tool}
 
-@section[#:tag "What"]{What}
-
 This is DrSync, written by Grant Rettke (grettke@elem["@"]acm.org).
+
+@section[#:tag "What"]{What}
 
 DrSync does two things:
 
