@@ -105,6 +105,11 @@ $HeadURL$
             (λ (editor)
               (send editor get-start-position)))
           
+          ; (text% -> path)
+          (define get-file-path
+            (λ (editor)
+              (send editor get-filename)))
+          
           (define/override (on-activate active?)
             (super on-activate active?)
             (if active? (handle-activation) (handle-deactivation))) 
