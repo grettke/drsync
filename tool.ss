@@ -24,34 +24,42 @@
             (if active? (handle-activation) (handle-deactivation))) 
           
           (define each-tab
-            (λ (thunk)
+            (λ (predicate action)
               (for-each
                (λ (tab)
                  (let ([editor (send tab get-defs)])
-                   (thunk editor)))
+                   (if (predicate editor) (action editor))))
                (send this get-tabs))))
+          
+          (define file-loaded?
+            (λ (editor)
+              (send editor get-filename)))
+          
+          (define file-modified?
+            (λ (editor)
+              (send editor is-modified?)))
           
           (define handle-activation
             (λ ()
               (each-tab
-               (λ (editor)                 
-                 (if (send editor get-filename)
-                     (send editor load-file 
-                           #f 
-                           (send editor get-file-format) 
-                           #t))))))
+               (λ (editor) (file-loaded? editor))
+               (λ (editor) 
+                 (send editor load-file 
+                       #f 
+                       (send editor get-file-format) 
+                       #t)))))
           
           (define handle-deactivation
             (λ ()
               (each-tab
+               (λ (editor) (and (file-loaded? editor) (file-modified? editor)))
                (λ (editor)
-                 (if (and (send editor get-filename) (send editor is-modified?))
-                     (send editor save-file 
-                           #f 
-                           (send editor get-file-format) 
-                           #t))))))
-        
-        (super-new)))
-    
-    (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
+                 (send editor save-file 
+                       #f 
+                       (send editor get-file-format) 
+                       #t)))))
+          
+          (super-new)))
+      
+      (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
 
