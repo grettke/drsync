@@ -21,35 +21,38 @@
           
           (define/override (on-activate active?)
             (super on-activate active?)
-            (if active? (handle-activation) (handle-deactivation)))
+            (if active? (handle-activation) (handle-deactivation))) 
+          
+          (define each-tab
+            (λ (thunk)
+              (for-each
+               (λ (tab)
+                 (thunk tab))
+               (send this get-tabs))))
           
           (define handle-activation
-           (λ ()
-              (for-each
+            (λ ()
+              (each-tab
                (λ (tab)
                  (let ([editor (send tab get-defs)])
                    (if (send editor get-filename)
                        (send editor load-file 
                              #f 
                              (send editor get-file-format) 
-                             #t)
-                       void)))               
-               (send this get-tabs))))
+                             #t)))))))
           
           (define handle-deactivation
             (λ ()
-              (for-each
+              (each-tab
                (λ (tab)
                  (let ([editor (send tab get-defs)])
                    (if (and (send editor get-filename) (send editor is-modified?))
                        (send editor save-file 
                              #f 
                              (send editor get-file-format) 
-                             #t)
-                       void)))               
-               (send this get-tabs))))
+                             #t)))))))
           
-            (super-new)))
-        
-        (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
-  
+          (super-new)))
+      
+      (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
+
