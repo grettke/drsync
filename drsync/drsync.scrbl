@@ -23,21 +23,20 @@ DrSync does two things:
 	file upon returning to DrScheme.")
   (item "If you use an external compilation process, sometimes you forget to
 	save your changes, resulting in phenomena ranging from head scratching to hair pulling.")
-  (item "After performing any of these processes manually three or four hundred times, you will begin 
-	to appreciate any way to make it easier."))
+  (item "After manually addressing any of these scenarios three or four hundred times, you will begin 
+	to appreciate any way to make it easier. DrSync is one such way."))
 
 @section[#:tag "How"]{How}
 
 DrSync follows the KIS principle: Keep It Simple.
 
 @(itemize    
-  (item "Synchronization occurs only on frame activation and deactivation
+  (item "Synchronization occurs only on frame activation and deactivation. 
         For example, opening file menus, switching between tabs, or moving
-	between the editor and the REPL, will not trigger synchronization.
+	between the editor and the REPL will not trigger synchronization.
         Opening any dialog, however, will trigger synchronization.")
   (item "Every editor is synchronized. If there is a file open in
 	a tab, it will be synchronized.")
   (item "This tool may not be disabled. If you use this 
 	tool, you most probably have a good reason to do so, and in the long 
-	run you will be better off always knowing that your files are in sync
-	at all times."))
+	run you will be better off knowing that your files are always in sync."))
