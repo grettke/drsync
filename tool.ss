@@ -16,7 +16,7 @@
       (define phase1 void)
       (define phase2 void) 
       
-      (define drsync-frame-mixin%
+      (define drsync-frame-mixin
         (mixin (drscheme:unit:frame<%>) () 
           
           (define/override (on-activate active?)
@@ -43,5 +43,5 @@
           
             (super-new)))
         
-        (drscheme:get/extend:extend-unit-frame drsync-frame-mixin%))))
+        (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
   
