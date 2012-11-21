@@ -25,8 +25,17 @@
                 (handle-deactivation)))
           
           (define handle-activation
-            (λ ()
-              void))
+           (λ ()
+              (for-each
+               (λ (tab)
+                 (let ([editor (send tab get-defs)])
+                   (if (send editor get-filename)
+                       (send editor load-file 
+                             #f 
+                             (send editor get-file-format) 
+                             #t)
+                       void)))               
+               (send this get-tabs))))
           
           (define handle-deactivation
             (λ ()
