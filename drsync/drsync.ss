@@ -93,10 +93,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           (lambda (editor)
             (with-handlers
                 ((exn:fail? (lambda (exc) #f)))
-              (send editor load-file 
-                    #f 
-                    (send editor get-file-format) 
-                    #t))))
+              (send editor load-file #f (send editor get-file-format) #t))))
         
         ; (text% -> bool)
         (define save-file
