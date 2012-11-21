@@ -31,9 +31,10 @@ DrSync does two things:
 DrSync follows the KIS principle: Keep It Simple.
 
 @(itemize    
-  (item "Synchronization occurs only on frame activation and deactivation and
-	at no other time. Opening file menus, switching between tabs, or moving
-	between the editor and the REPL will not trigger synchronization.")
+  (item "Synchronization occurs only on frame activation and deactivation
+        For example, opening file menus, switching between tabs, or moving
+	between the editor and the REPL, will not trigger synchronization.
+        Opening any dialog, however, will trigger synchronization.")
   (item "Every type of file will be synchronized. Whether you edit SS, SCM, or
 	TXT files in the editor makes no difference. If there is a file open in
 	a tab, it will be synchronized.")
