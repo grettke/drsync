@@ -37,128 +37,128 @@ See the definition of revert in /collects/framework/private/frame.ss on line 114
 Thanks to everyone's help in the PLT community; writing this tool was relatively "a breeze".
 |#
 #lang scheme/base
-  (require (lib "tool.ss" "drscheme")
-           (lib "mred.ss" "mred")
-           (lib "unit.ss")
-           (lib "class.ss"))
-  
-  (provide tool@)
-  
-  (define tool@
-    (unit
-      (import drscheme:tool^)
-      (export drscheme:tool-exports^)
-      (define phase1 void)
-      (define phase2 void) 
-      
-      (define drsync-frame-mixin
-        (mixin (drscheme:unit:frame<%>) () 
-          
-          (define file/timestamps (make-hash-table 'equal))
-          
-          ; (path -> number|bool)
-          (define mem-timestamp
-            (lambda (path)
-              (hash-table-get 
-               file/timestamps 
-               (path->string path)
-               #f)))
-          
-          ; (path number -> void)
-          (define set-mem-timestamp
-            (lambda (path stamp)
-              (hash-table-put! 
-               file/timestamps 
-               (path->string path)
-               stamp)))
-          
-          ; (text% -> path)
-          (define file-path
-            (lambda (editor)
-              (send editor get-filename)))
-          
-          ; (text% -> bool)
-          (define file-loaded?
-            (lambda (editor)
-              (file-path editor)))
-          
-          ; (text% -> bool)
-          (define file-modified?
-            (lambda (editor)
-              (send editor is-modified?)))
-          
-          ; (path -> number)
-          (define fs-timestamp
-            (lambda (path)
-              (with-handlers
-                  ((exn:fail:filesystem? (lambda (exc) -1)))
-                (file-or-directory-modify-seconds path))))
-          
-          ; (text% -> bool)
-          (define load-file
-            (lambda (editor)
-              (with-handlers
-                  ((exn:fail? (lambda (exc) #f)))
-                (send editor load-file 
-                      #f 
-                      (send editor get-file-format) 
-                      #t))))
-          
-          ; (text% -> bool)
-          (define save-file
-            (lambda (editor)
-              (with-handlers
-                  ((exn:fail? (lambda (exc) #f)))
-                (send editor save-file 
-                      #f 
-                      (send editor get-file-format) 
-                      #t))))
-          
-          ; (text% -> number)
-          (define file-start-position
-            (lambda (editor)
-              (send editor get-start-position)))
-          
-          (define/override (on-activate active?)
-            (super on-activate active?)
-            (if active? (handle-activation) (handle-deactivation))) 
-          
-          (define handle-activation
-            (lambda ()              
-              (each-tab
-               (lambda (editor) (file-loaded? editor))
-               (lambda (editor) 
-                 (let* ([path (file-path editor)]
-                        [mem/timestamp (mem-timestamp path)]
-                        [fs/timestamp (fs-timestamp path)])
-                   (if (and mem/timestamp (> fs/timestamp mem/timestamp))
-                       (begin 
-                         (send editor begin-edit-sequence)
-                         (let ([pos (file-start-position editor)]
-                               [loaded (load-file editor)])
-                           (if loaded (send editor set-position pos pos)))
-                         (send editor end-edit-sequence))))))))
-          
-          (define handle-deactivation
-            (lambda ()
-              (each-tab
-               (lambda (editor) (file-loaded? editor))
-               (lambda (editor) 
-                 (if (file-modified? editor) (save-file editor))
-                 (let* ([path (file-path editor)]
-                        [mem/timestamp (mem-timestamp path)]
-                        [fs/timestamp (fs-timestamp path)])
-                   (if (or (not mem/timestamp) (> fs/timestamp mem/timestamp))
-                       (set-mem-timestamp path fs/timestamp)))))))
-          
-          (define each-tab
-            (lambda (predicate? action)
-              (for-each
-               (lambda (tab)
-                 (let ([editor (send tab get-defs)])
-                   (if (predicate? editor) (action editor))))
-               (send this get-tabs))))
-          
-          (super-new)))
-      
-      (drscheme:get/extend:extend-unit-frame drsync-frame-mixin)))
+(require (lib "tool.ss" "drscheme")
+         (lib "mred.ss" "mred")
+         (lib "unit.ss")
+         (lib "class.ss"))
+
+(provide tool@)
+
+(define tool@
+  (unit
+    (import drscheme:tool^)
+    (export drscheme:tool-exports^)
+    (define phase1 void)
+    (define phase2 void) 
+    
+    (define drsync-frame-mixin
+      (mixin (drscheme:unit:frame<%>) () 
+        
+        (define file/timestamps (make-hash-table 'equal))
+        
+        ; (path -> number|bool)
+        (define mem-timestamp
+          (lambda (path)
+            (hash-table-get 
+             file/timestamps 
+             (path->string path)
+             #f)))
+        
+        ; (path number -> void)
+        (define set-mem-timestamp
+          (lambda (path stamp)
+            (hash-table-put! 
+             file/timestamps 
+             (path->string path)
+             stamp)))
+        
+        ; (text% -> path)
+        (define file-path
+          (lambda (editor)
+            (send editor get-filename)))
+        
+        ; (text% -> bool)
+        (define file-loaded?
+          (lambda (editor)
+            (file-path editor)))
+        
+        ; (text% -> bool)
+        (define file-modified?
+          (lambda (editor)
+            (send editor is-modified?)))
+        
+        ; (path -> number)
+        (define fs-timestamp
+          (lambda (path)
+            (with-handlers
+                ((exn:fail:filesystem? (lambda (exc) -1)))
+              (file-or-directory-modify-seconds path))))
+        
+        ; (text% -> bool)
+        (define load-file
+          (lambda (editor)
+            (with-handlers
+                ((exn:fail? (lambda (exc) #f)))
+              (send editor load-file 
+                    #f 
+                    (send editor get-file-format) 
+                    #t))))
+        
+        ; (text% -> bool)
+        (define save-file
+          (lambda (editor)
+            (with-handlers
+                ((exn:fail? (lambda (exc) #f)))
+              (send editor save-file 
+                    #f 
+                    (send editor get-file-format) 
+                    #t))))
+        
+        ; (text% -> number)
+        (define file-start-position
+          (lambda (editor)
+            (send editor get-start-position)))
+        
+        (define/override (on-activate active?)
+          (super on-activate active?)
+          (if active? (handle-activation) (handle-deactivation))) 
+        
+        (define handle-activation
+          (lambda ()              
+            (each-tab
+             (lambda (editor) (file-loaded? editor))
+             (lambda (editor) 
+               (let* ([path (file-path editor)]
+                      [mem/timestamp (mem-timestamp path)]
+                      [fs/timestamp (fs-timestamp path)])
+                 (if (and mem/timestamp (> fs/timestamp mem/timestamp))
+                     (begin 
+                       (send editor begin-edit-sequence)
+                       (let ([pos (file-start-position editor)]
+                             [loaded (load-file editor)])
+                         (if loaded (send editor set-position pos pos)))
+                       (send editor end-edit-sequence))))))))
+        
+        (define handle-deactivation
+          (lambda ()
+            (each-tab
+             (lambda (editor) (file-loaded? editor))
+             (lambda (editor) 
+               (if (file-modified? editor) (save-file editor))
+               (let* ([path (file-path editor)]
+                      [mem/timestamp (mem-timestamp path)]
+                      [fs/timestamp (fs-timestamp path)])
+                 (if (or (not mem/timestamp) (> fs/timestamp mem/timestamp))
+                     (set-mem-timestamp path fs/timestamp)))))))
+        
+        (define each-tab
+          (lambda (predicate? action)
+            (for-each
+             (lambda (tab)
+               (let ([editor (send tab get-defs)])
+                 (if (predicate? editor) (action editor))))
+             (send this get-tabs))))
+        
+        (super-new)))
+    
+    (drscheme:get/extend:extend-unit-frame drsync-frame-mixin)))
