@@ -4,7 +4,7 @@ Hi folks,
 
 Thanks to some well written documentation along with the help and
 encouragement of the fine members of this mailing list I've prepared
-the first release of the DrSync tool for DrScheme.
+another release of the DrSync tool for DrScheme.
 
 DrSync is a tool that saves your files on frame deactivation and
 reverts them on frame activation. This tool is of particular interest
