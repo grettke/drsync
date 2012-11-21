@@ -41,16 +41,10 @@ light_source { <-30,70,100>, White }
 }
 
 // Button symbol (start/stop)
-#declare c_start = merge {
-  difference {
-    cylinder { <0,0,0>,<0,0,1>,1 }
-    union {
-      cylinder { <0,0,-1>,<0,0,2>,0.7 }
-      box { <-0.3,0,-1>,<0.3,2,2> }
-    }
-  }
-  box { <-0.15,0.2,0>,<0.15,1.2,1> }
-}
+#declare c_start = text {
+                ttf "arialbd.ttf" "DS" 2, 0  
+                translate <-0.75, -0.75, 0>
+        }
 
 // Button finish
 #declare f_button = finish {
