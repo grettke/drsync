@@ -82,11 +82,11 @@ $HeadURL$
             (λ (editor)
               (send editor is-modified?)))
           
-          ; (path -> number|bool)
+          ; (path -> number)
           (define fs-timestamp
             (λ (path)
               (with-handlers
-                  ((exn:fail:filesystem? (λ (exc) #f)))
+                  ((exn:fail:filesystem? (λ (exc) -1)))
                 (file-or-directory-modify-seconds path))))
           
           ; (text% -> bool)
@@ -115,21 +115,32 @@ $HeadURL$
             (if active? (handle-activation) (handle-deactivation))) 
           
           (define handle-activation
-            (λ ()
+            (λ ()              
               (each-tab
                (λ (editor) (file-loaded? editor))
                (λ (editor) 
-                 (send editor begin-edit-sequence)
-                 (letrec ([pos (file-start-position editor)]
-                          [loaded (load-file editor)])
-                   (if loaded (send editor set-position pos pos)))
-                 (send editor end-edit-sequence)))))          
+                 (let* ([path (get-file-path editor)]
+                        [prev/timestamp (mem-timestamp path)]
+                        [fs/timestamp (fs-timestamp path)])
+                   (if (and prev/timestamp (> fs/timestamp prev/timestamp))
+                       (begin 
+                         (send editor begin-edit-sequence)
+                         (letrec ([pos (file-start-position editor)]
+                                  [loaded (load-file editor)])
+                           (if loaded (send editor set-position pos pos)))
+                         (send editor end-edit-sequence))))))))
           
           (define handle-deactivation
             (λ ()
               (each-tab
-               (λ (editor) (and (file-loaded? editor) (file-modified? editor)))
-               (λ (editor) (save-file editor)))))
+               (λ (editor) (file-loaded? editor))
+               (λ (editor) 
+                 (if (file-modified? editor) (save-file editor))
+                 (let* ([path (get-file-path editor)]
+                        [mem/timestamp (mem-timestamp path)]
+                        [fs/timestamp (fs-timestamp path)])
+                   (if (or (not mem/timestamp) (> fs/timestamp mem/timestamp))
+                       (set-mem-timestamp path fs/timestamp)))))))
           
           (define each-tab
             (λ (predicate? action)
