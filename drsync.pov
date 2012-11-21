@@ -60,7 +60,7 @@ light_source { <-30,70,100>, White
     reflection 0
   }
   normal { bumps 0.05 scale 0.01 }
-  pigment { color Red }
+  pigment { color Blue }
 }
 
 // Button and contents (hole in button for backlight)
