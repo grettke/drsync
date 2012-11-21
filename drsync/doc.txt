@@ -18,8 +18,8 @@ Why:
 
 *	Switching between DrScheme and your version control client, it is
 	easier knowing that your file is saved, and ready for a commit. After
-	going through this process only fifty or sixty times, you will to 
-	appreciate any way to make it easier.
+	going through this process only fifty or sixty times, you will begin 
+	to appreciate any way to make it easier.
 
 *	If you use version control keyword expansion, you need to revert your
 	file each time you return to DrScheme.
