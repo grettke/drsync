@@ -33,6 +33,8 @@ $HeadURL$
 |#
 #|
 See the definition of revert in /collects/framework/private/frame.ss on line 1147 for inspiration of the revert functionality in this mixin.
+
+Thanks to everyone's help in the PLT community; writing this tool was relatively "a breeze".
 |#
 (module drsync mzscheme
   (require (lib "tool.ss" "drscheme")
