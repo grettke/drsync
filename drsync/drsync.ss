@@ -92,18 +92,22 @@ $HeadURL$
           ; (text% -> bool)
           (define load-file
             (λ (editor)
-              (send editor load-file 
-                    #f 
-                    (send editor get-file-format) 
-                    #t)))
+              (with-handlers
+                  ((exn:fail? (λ (exc) #f)))
+                (send editor load-file 
+                      #f 
+                      (send editor get-file-format) 
+                      #t))))
           
           ; (text% -> bool)
           (define save-file
             (λ (editor)
-              (send editor save-file 
-                    #f 
-                    (send editor get-file-format) 
-                    #t)))
+              (with-handlers
+                  ((exn:fail? (λ (exc) #f)))
+                (send editor save-file 
+                      #f 
+                      (send editor get-file-format) 
+                      #t))))
           
           ; (text% -> number)
           (define file-start-position
