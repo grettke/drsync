@@ -1,5 +1,5 @@
 #|
-Copyright (c) 2007 Grant Rettke
+Copyright (c) 2007 Grant Rettke (grettke@acm.org)
 
 All rights reserved.
 
