@@ -49,18 +49,6 @@ $HeadURL$
       (define drsync-frame-mixin
         (mixin (drscheme:unit:frame<%>) () 
           
-          (define/override (on-activate active?)
-            (super on-activate active?)
-            (if active? (handle-activation) (handle-deactivation))) 
-          
-          (define each-tab
-            (λ (predicate? action)
-              (for-each
-               (λ (tab)
-                 (let ([editor (send tab get-defs)])
-                   (if (predicate? editor) (action editor))))
-               (send this get-tabs))))
-          
           (define file-loaded?
             (λ (editor)
               (send editor get-filename)))
@@ -74,6 +62,10 @@ $HeadURL$
               (with-handlers
                   ((exn:fail:filesystem? (λ (exc) -1)))
                 (file-or-directory-modify-seconds path))))
+          
+          (define/override (on-activate active?)
+            (super on-activate active?)
+            (if active? (handle-activation) (handle-deactivation))) 
           
           (define handle-activation
             (λ ()
@@ -98,6 +90,14 @@ $HeadURL$
                        #f 
                        (send editor get-file-format) 
                        #t)))))
+          
+          (define each-tab
+            (λ (predicate? action)
+              (for-each
+               (λ (tab)
+                 (let ([editor (send tab get-defs)])
+                   (if (predicate? editor) (action editor))))
+               (send this get-tabs))))
           
           (super-new)))
       
