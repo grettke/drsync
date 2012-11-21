@@ -1,3 +1,6 @@
+// Credit: Eric Bainville - Mar 2007
+// Location: http://www.bealto.com/geo-povray-buttons_glow.html
+
 #include "colors.inc"
 #include "metals.inc"
 #include "textures.inc"
