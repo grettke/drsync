@@ -53,6 +53,8 @@ $HeadURL$
 
 (define tools '(("drsync.ss")))
 
+(define homepage "http://www.wisdomandwonder.com/")
+
 (define primary-file "drsync.ss")
 
 (define required-core-version "4.0")
