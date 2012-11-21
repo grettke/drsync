@@ -20,7 +20,7 @@ All feedback appreciated.
 
 Here is the link:
 
-<planet url>
+http://planet.plt-scheme.org/display.ss?package=drsync.plt&owner=grettke
 
 Best wishes,
 
