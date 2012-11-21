@@ -66,7 +66,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           (lambda (path stamp)
             (hash-set! file/timestamps (path->string path) stamp)))
         
-        ; (text% -> path)
+        ; (text% : class?) -> (or/c path-string? false/c)
         (define file-path
           (lambda (editor)
             (send editor get-filename)))
