@@ -69,6 +69,12 @@ $HeadURL$
             (λ (editor)
               (send editor is-modified?)))
           
+          (define file-timestamp
+            (λ (path)
+              (with-handlers
+                  ((exn:fail:filesystem? (λ (exc) -1)))
+                (file-or-directory-modify-seconds path))))
+          
           (define handle-activation
             (λ ()
               (each-tab
