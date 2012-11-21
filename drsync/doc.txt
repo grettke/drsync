@@ -1,3 +1,5 @@
+DrSync: A file synchronization tool
+
 $LastChangedDate$
 $LastChangedRevision$
 $HeadURL$
