@@ -26,3 +26,21 @@ Why:
 
 *	If you use an external compilation process, sometimes you forget to
 	save your changes, resulting in your quizzical stares and hair pulling.
+
+---
+
+How:
+
+DrSync follows the KIS principle: Keep It Simple.
+
+1.	Synchronization occurs only on frame activation and deactivation and
+	at no other time. Opening file menus, switching between tabs, or moving
+	between the editor and the REPL will not trigger synchronization.
+
+2.	Every type of file will be synchronized. Whether you edit SS, SCM, or
+	TXT files in the editor makes no difference. If there is a file open in
+	a tab, it will be synchronized.
+
+3.	Synchroniztion always occurs. If you use this tool, you most probably
+	need this behavior, and in the long run it is better to always know 
+	that your files are in sync.
