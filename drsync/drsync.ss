@@ -62,7 +62,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
             (hash-ref file/timestamps (path->string path) #f)))
         
         ; (path number -> void)
-        (define set-mem-timestamp
+        (define set!-mem-timestamp
           (lambda (path stamp)
             (hash-set! file/timestamps (path->string path) stamp)))
         
@@ -137,7 +137,7 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
                       [mem/timestamp (mem-timestamp path)]
                       [fs/timestamp (fs-timestamp path)])
                  (when (or (not mem/timestamp) (> fs/timestamp mem/timestamp))
-                   (set-mem-timestamp path fs/timestamp)))))))
+                   (set!-mem-timestamp path fs/timestamp)))))))
         
         (define each-tab
           (lambda (predicate? action)
