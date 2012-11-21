@@ -43,7 +43,7 @@ light_source { <-30,70,100>, White }
 // Button symbol (start/stop)
 #declare c_start = text {
                 ttf "arialbd.ttf" "DS" 2, 0  
-                translate <-0.6, -0.4, 0>
+                translate <-0.6, -0.3, 0>
         }
 
 // Button finish
