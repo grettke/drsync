@@ -71,7 +71,7 @@ light_source { <-30,70,100>, White
 
 // Backlight
 light_source {
-  <0,0,-20>, White
+  <0,0,-20>, Yellow
   projected_through { box { <-0.7,-0.7,-1.1>,<0.7,0.7,-1> } }
   photons {
     reflection on
