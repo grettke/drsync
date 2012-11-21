@@ -36,7 +36,7 @@ See the definition of revert in /collects/framework/private/frame.ss on line 114
 
 Thanks to everyone's help in the PLT community; writing this tool was relatively "a breeze".
 |#
-(module drsync mzscheme
+#lang scheme/base
   (require (lib "tool.ss" "drscheme")
            (lib "mred.ss" "mred")
            (lib "unit.ss")
@@ -161,4 +161,4 @@ Thanks to everyone's help in the PLT community; writing this tool was relatively
           
           (super-new)))
       
-      (drscheme:get/extend:extend-unit-frame drsync-frame-mixin))))
+      (drscheme:get/extend:extend-unit-frame drsync-frame-mixin)))
