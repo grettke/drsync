@@ -1,3 +1,4 @@
 #!/bin/sh
-raco planet remove grettke drsync.plt 2 8
+. ./ver.sh
+raco planet remove $DRS_VER
 echo "You must restart DrRacket to unload the tool"

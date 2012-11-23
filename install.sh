@@ -1,3 +1,4 @@
 #!/bin/sh
-raco planet fileinject grettke drsync.plt 2 8
+. ./ver.sh
+raco planet fileinject $DRS_VER
 echo "You must restart DrRacket to use the tool"
